@@ -24,12 +24,12 @@ pipeline {
 			script {
 				if (isUnix()) {
        
-					sh 'mvn -x compile'
+					sh 'mvn -X compile'
 	        		} 
 				else  {
  
           
-       			bat script: "mvn -x compile"
+       			bat script: "mvn -X compile"
  
 	        		}
 		  	 	echo 'Building the project completed successfully...!'
