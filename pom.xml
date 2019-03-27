@@ -67,6 +67,7 @@
 </build>
 
 
+<!--
 <distributionManagement>
     	<repository>
         	<id>central</id>
@@ -79,6 +80,7 @@
         	<url>https://artifactoryg01dy.jfrog.io/artifactoryg01dy/ankitalocalRepo</url>
     	</snapshotRepository>
 </distributionManagement>
+-->
 
 
 
