@@ -2,7 +2,7 @@ pipeline {
     agent any
 	
     def mavenHome
-    mavenHome = tool name: 'maven354', type: 'maven'
+    mvnHome = tool name: 'maven354', type: 'maven'
     stages {
         stage('GIT Checkout') {
 	    steps {
@@ -17,13 +17,13 @@ pipeline {
                 echo 'Starting the Building phase...'
 		 if (isUnix()) {
        
-			sh "'${mavenHome}\\bin\\mvn' compile"
+			sh "'${mvnHome}\\bin\\mvn' compile"
 	  
        } 
 		 else  {
  
           
-       	bat script: "${mavenHome}\\bin\\mvn compile"
+       	bat script: "${mvnHome}\\bin\\mvn compile"
  
 	         }
 		
@@ -37,13 +37,13 @@ pipeline {
                 echo 'Starting the Testing phase...'
 		if (isUnix()) {
        
-			sh "'${mavenHome}\\bin\\mvn' test"
+			sh "'${mvnHome}\\bin\\mvn' test"
 	  
        } 
 		 else  {
  
           
-       	bat script: "${mavenHome}\\bin\\mvn test"
+       	bat script: "${mvnHome}\\bin\\mvn test"
  
 	         }
 		
@@ -57,13 +57,13 @@ pipeline {
                 echo 'Packaging of the project begins...'
 		if (isUnix()) {
        
-			sh "'${mavenHome}\\bin\\mvn' package"
+			sh "'${mvnHome}\\bin\\mvn' package"
 	  
        } 
 		 else  {
  
           
-       	bat script: "${mavenHome}\\bin\\mvn package"
+       	bat script: "${mvnHome}\\bin\\mvn package"
  
 	         }
 		
@@ -77,13 +77,13 @@ pipeline {
                 echo 'Ready to deploy the packaged files....'
 		if (isUnix()) {
        
-			sh "'${mavenHome}\\bin\\mvn' deploy"
+			sh "'${mvnHome}\\bin\\mvn' deploy"
 	  
        } 
 		 else  {
  
           
-       	bat script: "${mavenHome}\\bin\\mvn deploy"
+       	bat script: "${mvnHome}\\bin\\mvn deploy"
  
 	         }
 		
