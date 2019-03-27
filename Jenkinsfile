@@ -29,7 +29,7 @@ pipeline {
 				else  {
  
           
-       			bat script: "${mvnHome}\\bin\\mvn compile"
+       			bat script: "mvn compile"
  
 	        		}
 		  	 	echo 'Building the project completed successfully...!'
