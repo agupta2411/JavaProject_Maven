@@ -2,7 +2,7 @@ pipeline {
     agent any
 	
     tools {
-	maven 'maven354'
+	def mvnHome = maven 'maven354'
     }
 
     //def mvnHome
