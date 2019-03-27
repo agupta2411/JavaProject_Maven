@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	
-    def mavenHome
+    def mvnHome
     mvnHome = tool name: 'maven354', type: 'maven'
     stages {
         stage('GIT Checkout') {
