@@ -24,12 +24,12 @@ pipeline {
 			script {
 				if (isUnix()) {
        
-					sh 'mvn -X compile'
+					sh 'mvn compile'
 	        		} 
 				else  {
  
           
-       			bat script: "mvn -X compile"
+       			bat script: "mvn compile"
  
 	        		}
 		  	 	echo 'Building the project completed successfully...!'
@@ -68,7 +68,7 @@ pipeline {
 		 		else  {
  
           
-       			bat script: "${mvnHome}\\bin\\mvn test"
+       			bat script: "mvn test"
  
 	         		}
 		
@@ -89,7 +89,7 @@ pipeline {
 		 		else  {
  
           
-       			bat script: "${mvnHome}\\bin\\mvn package"
+       			bat script: "mvn package"
  
 	         		}
 		
@@ -110,7 +110,7 @@ pipeline {
 				 else  {
  
           
-       			bat script: "${mvnHome}\\bin\\mvn deploy"
+       			bat script: "mvn deploy"
  
 	        		 }
 		
