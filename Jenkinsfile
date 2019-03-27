@@ -104,13 +104,13 @@ pipeline {
 			script {
 				if (isUnix()) {
        
-					sh 'mvn deploy -o'
+					sh 'mvn deploy'
 	  
        		} 
 				 else  {
  
           
-       			bat script: "mvn deploy -o"
+       			bat script: "mvn deploy"
  
 	        		 }
 		
