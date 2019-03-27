@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+ 
+<proxies>
+    <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <username>cts\591932</username>
+      <password>Plumber1</password>
+      <host>proxy.cognizant.com</host>
+      <port>6050</port>
+    </proxy>
+</proxies>
+
+<servers>
+    <server>
+      <username>admin</username>
+      <password>Do4Te3Xf4Wv3Vl</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>admin</username>
+      <password>Do4Te3Xf4Wv3Vl</password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-snapshot</name>
+          <url>https://artifactoryg01dy.jfrog.io/artifactoryg01dy/libs-snapshot</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://artifactoryg01dy.jfrog.io/artifactoryg01dy/libs-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-snapshot</name>
+          <url>https://artifactoryg01dy.jfrog.io/artifactoryg01dy/libs-snapshot</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://artifactoryg01dy.jfrog.io/artifactoryg01dy/libs-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
