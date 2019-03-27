@@ -59,59 +59,63 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Starting the Testing phase...'
-		if (isUnix()) {
+		   script  {
+				if (isUnix()) {
        
-			sh "'${mvnHome}\\bin\\mvn' test"
+					sh "'${mvnHome}\\bin\\mvn' test"
 	  
-       } 
-		 else  {
+       		} 
+		 		else  {
  
           
-       	bat script: "${mvnHome}\\bin\\mvn test"
+       			bat script: "${mvnHome}\\bin\\mvn test"
  
-	         }
+	         		}
 		
-		echo 'Testing of the project completed successfully...!'
-		
+				echo 'Testing of the project completed successfully...!'
+		  }
             }
         }
 
 	stage('Package') {
             steps {
                 echo 'Packaging of the project begins...'
-		if (isUnix()) {
+		   script {
+				if (isUnix()) {
        
-			sh "'${mvnHome}\\bin\\mvn' package"
+					sh "'${mvnHome}\\bin\\mvn' package"
 	  
-       } 
-		 else  {
+       		} 
+		 		else  {
  
           
-       	bat script: "${mvnHome}\\bin\\mvn package"
+       			bat script: "${mvnHome}\\bin\\mvn package"
  
-	         }
+	         		}
 		
-		echo 'Successfully completed packaging of the project...!'
-		
-            }
+				echo 'Successfully completed packaging of the project...!'
+		}
+            }		
         }
 
         stage('Deploy') {
             steps {
                 echo 'Ready to deploy the packaged files....'
-		if (isUnix()) {
+			script {
+				if (isUnix()) {
        
-			sh "'${mvnHome}\\bin\\mvn' deploy"
+					sh "'${mvnHome}\\bin\\mvn' deploy"
 	  
-       } 
-		 else  {
+       		} 
+				 else  {
  
           
-       	bat script: "${mvnHome}\\bin\\mvn deploy"
+       			bat script: "${mvnHome}\\bin\\mvn deploy"
  
-	         }
+	        		 }
 		
-		echo 'Deployment of the packaged files completed successfully...!'
+				echo 'Deployment of the packaged files completed successfully...!'
+			}
             }
         }
     }
