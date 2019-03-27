@@ -1,8 +1,8 @@
 pipeline {
     agent any
-	def mvnHome
+	
     tools {
-	mvnHome = maven 'maven354'
+	maven 'maven354'
     }
 
     //def mvnHome
@@ -24,7 +24,7 @@ pipeline {
 			script {
 				if (isUnix()) {
        
-					sh "'${mvnHome}\\bin\\mvn' compile"
+					sh 'mvn compile'
 	        		} 
 				else  {
  
