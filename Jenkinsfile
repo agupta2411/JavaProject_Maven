@@ -17,25 +17,25 @@ pipeline {
 	    }
 	}
 
-	//stage('Build') {
-          //  steps {
-               // echo 'Starting the Building phase...'
-		//
-			//script {
-				//if (isUnix()) {
+	stage('Build') {
+           steps {
+                echo 'Starting the Building phase...'
+		
+			script {
+				if (isUnix()) {
        
-				//	sh 'mvn compile'
-	        		//} 
-				//else  {
+					sh 'mvn compile'
+	        		} 
+				else  {
  
           
-       		//	bat script: "mvn compile"
+       			bat script: "mvn compile"
  
-	        		//}
-		  	 	//echo 'Building the project completed successfully...!'
-			//}
-		//}
-        //}
+	        		}
+		  	 	echo 'Building the project completed successfully...!'
+			}
+		}
+        }
 
 
 
