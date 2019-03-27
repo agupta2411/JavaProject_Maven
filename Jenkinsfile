@@ -20,22 +20,41 @@ pipeline {
 	stage('Build') {
             steps {
                 echo 'Starting the Building phase...'
-		 if (isUnix()) {
+		
+			script {
+				if (isUnix()) {
        
-			sh "'${mvnHome}\\bin\\mvn' compile"
-	  
-       } 
-		 else  {
+					sh "'${mvnHome}\\bin\\mvn' compile"
+	        		} 
+				else  {
  
           
-       	bat script: "${mvnHome}\\bin\\mvn compile"
+       			bat script: "${mvnHome}\\bin\\mvn compile"
  
-	         }
-		
-		echo 'Building the project completed successfully...!'
-		
-            }
+	        		}
+		  	 	echo 'Building the project completed successfully...!'
+			}
+		}
         }
+
+
+
+	//	 when {
+        //		expression {
+        //    			return isUnix()
+       	//		 }
+	//	}
+	//	
+	//	step {
+	//		sh "'${mvnHome}\\bin\\mvn' compile"
+	//	}
+
+    
+		  
+
+
+
+            
 
         stage('Test') {
             steps {
