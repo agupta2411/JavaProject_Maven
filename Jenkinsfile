@@ -1,8 +1,8 @@
 pipeline {
     agent any
-	
+	def mvnHome
     tools {
-	def mvnHome = maven 'maven354'
+	mvnHome = maven 'maven354'
     }
 
     //def mvnHome
