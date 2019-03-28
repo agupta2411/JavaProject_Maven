@@ -11,15 +11,15 @@ pipeline {
     stages {
         stage('GIT Checkout') {
 	    steps {
-		 echo 'Initiating GIT Checkout...'
+		 echo '**********Initiating GIT Checkout...**********'
 		 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/agupta2411/JavaProject_Maven.git']]])
-		 echo 'GIT checkout completed...!!!'
+		 echo '**********GIT checkout completed...!!!**********'
 	    }
 	}
 
 	stage('Build') {
            steps {
-                echo 'Starting the Building phase...'
+                echo '**********Starting the Building phase...**********'
 		
 			script {
 				if (isUnix()) {
@@ -32,7 +32,7 @@ pipeline {
        			bat script: "mvn compile"
  
 	        		}
-		  	 	echo 'Building the project completed successfully...!'
+		  	 	echo '**********Building the project completed successfully...!**********'
 			}
 		}
         }
@@ -58,7 +58,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Starting the Testing phase...'
+                echo '**********Starting the Testing phase...**********'
 		   script  {
 				if (isUnix()) {
        
@@ -71,15 +71,25 @@ pipeline {
        			bat script: "mvn test"
  
 	         		}
-		
-				echo 'Testing of the project completed successfully...!'
+				
+				echo '**********Testing of the project completed successfully...!**********'
 		  }
             }
         }
 
+
+	stage('Execute') {
+		steps {
+	     		echo '**********Executing the Java Project...**********'
+	     		java -cp com.demoProject.App
+	     		echo '**********Java project executed successfully...***********'	
+		}
+	}
+
+
 	stage('Package') {
             steps {
-                echo 'Packaging of the project begins...'
+                echo '**********Packaging of the project begins...**********'
 		   script {
 				if (isUnix()) {
        
@@ -93,14 +103,14 @@ pipeline {
  
 	         		}
 		
-				echo 'Successfully completed packaging of the project...!'
+				echo '**********Successfully completed packaging of the project...!**********'
 		}
             }		
         }
 
         stage('Deploy') {
             steps {
-                echo 'Ready to deploy the packaged files....'
+                echo '**********Ready to deploy the packaged files....**********'
 			script {
 				if (isUnix()) {
        
@@ -114,7 +124,7 @@ pipeline {
  
 	        		 }
 		
-				echo 'Deployment of the packaged files completed successfully...!'
+				echo '**********Deployment of the packaged files completed successfully...!**********'
 			}
             }
         }
