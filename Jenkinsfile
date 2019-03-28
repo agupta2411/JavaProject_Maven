@@ -78,15 +78,6 @@ pipeline {
         }
 
 
-	stage('Execute') {
-		steps {
-	     		echo '**********Executing the Java Project...**********'
-	     		java -cp com.demoProject.App
-	     		echo '**********Java project executed successfully...***********'	
-		}
-	}
-
-
 	stage('Package') {
             steps {
                 echo '**********Packaging of the project begins...**********'
@@ -107,6 +98,14 @@ pipeline {
 		}
             }		
         }
+	    
+	    stage('Execute') {
+		steps {
+	     		echo '**********Executing the Java Project...**********'
+	     		java -jar target/demo-project-3.0-SNAPSHOT.jar
+	     		echo '**********Java project executed successfully...***********'	
+		}
+	}
 
         stage('Deploy') {
             steps {
