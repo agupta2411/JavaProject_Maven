@@ -99,13 +99,13 @@ pipeline {
             }		
         }
 	    
-	    stage('Execute') {
-		steps {
-	     		echo '**********Executing the Java Project...**********'
-	     		java -jar target/demo-project-3.0-SNAPSHOT.jar
-	     		echo '**********Java project executed successfully...***********'	
-		}
-	}
+	   // stage('Execute') {
+	//	steps {
+	     //		echo '**********Executing the Java Project...**********'
+	     //		java -jar target/demo-project-3.0-SNAPSHOT.jar
+	     //		echo '**********Java project executed successfully...***********'	
+		//}
+	//}
 
         stage('Deploy') {
             steps {
